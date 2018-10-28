@@ -21,10 +21,9 @@ export class ConversationComponent implements OnInit {
         for (const conversationIndex in data) {
           if (conversationIndex) {
             const conversation = data[conversationIndex];
-            this.conversations[conversation.remoteUsernames[0]] = conversation;
+            this.conversations[conversation.remoteUsername] = conversation;
           }
         }
-        console.log(this.conversations);
       });
   }
 

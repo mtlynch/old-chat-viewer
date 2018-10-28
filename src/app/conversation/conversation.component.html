@@ -1,7 +1,7 @@
 <div *ngIf="conversations">
   <select class="select-option" required [(ngModel)]="selectedConversation">
     <option class="option" *ngFor="let item of conversations | keyvalue" [value]="item.key">
-      {{ item.value.remoteUsernames[0] }} - {{ item.value.messages.length }} messages
+      {{ item.value.remoteUsername }} - {{ item.value.messages.length }} messages
     </option>
   </select>
 
