@@ -1,0 +1,20 @@
+<p>
+  conversation works!
+</p>
+
+<div *ngIf="logData">
+  <ol>
+    <li *ngFor="let c of logData">
+      {{ c.remoteUsernames[0] }} - {{ c.messages.length }} messages
+    </li>
+  </ol>
+
+  <div *ngFor="let m of logData[selectedConversation].messages">
+    <p>
+      <span [ngClass]="m.sender === logData[selectedConversation].localUsername ? 'local-sender' : 'remote-sender'">{{
+        m.sender }}</span>
+      (<span class="timestamp">{{ m.timestamp }}</span>):
+      <span class="contents">{{ m.contents }}</span>
+    </p>
+  </div>
+</div>
