@@ -9,16 +9,22 @@ import { environment } from '../../environments/environment';
 })
 export class ConversationComponent implements OnInit {
 
-  logData;
+  conversations = {};
 
-  selectedConversation: number;
+  selectedConversation: string;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get(environment.logDataUrl)
       .subscribe(data => {
-        this.logData = data;
+        for (const conversationIndex in data) {
+          if (conversationIndex) {
+            const conversation = data[conversationIndex];
+            this.conversations[conversation.remoteUsernames[0]] = conversation;
+          }
+        }
+        console.log(this.conversations);
       });
   }
 
