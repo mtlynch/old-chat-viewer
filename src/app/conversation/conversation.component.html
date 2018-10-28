@@ -11,7 +11,7 @@
         <span [ngClass]="m.sender === conversations[selectedConversation].localUsername ? 'local-sender' : 'remote-sender'">{{
           m.sender }}</span>
         (<span class="timestamp">{{ m.timestamp }}</span>):
-        <span class="contents">{{ m.contents }}</span>
+        <span class="contents" [innerHTML]="m.contents"></span>
       </p>
     </div>
   </div>
