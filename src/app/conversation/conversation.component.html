@@ -1,5 +1,5 @@
 <p>
-  conversation works!
+  <input type="text" placeholder="Select conversation" name="selectedConversation" [(ngModel)]="selectedConversation" />
 </p>
 
 <div *ngIf="logData">
@@ -9,12 +9,14 @@
     </li>
   </ol>
 
-  <div *ngFor="let m of logData[selectedConversation].messages">
-    <p>
-      <span [ngClass]="m.sender === logData[selectedConversation].localUsername ? 'local-sender' : 'remote-sender'">{{
-        m.sender }}</span>
-      (<span class="timestamp">{{ m.timestamp }}</span>):
-      <span class="contents">{{ m.contents }}</span>
-    </p>
+  <div *ngIf="selectedConversation != null">
+    <div *ngFor="let m of logData[selectedConversation].messages">
+      <p>
+        <span [ngClass]="m.sender === logData[selectedConversation].localUsername ? 'local-sender' : 'remote-sender'">{{
+          m.sender }}</span>
+        (<span class="timestamp">{{ m.timestamp }}</span>):
+        <span class="contents">{{ m.contents }}</span>
+      </p>
+    </div>
   </div>
 </div>

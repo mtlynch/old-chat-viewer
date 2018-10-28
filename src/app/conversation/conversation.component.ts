@@ -11,7 +11,7 @@ export class ConversationComponent implements OnInit {
 
   logData;
 
-  selectedConversation = 28;
+  selectedConversation: number;
 
   constructor(private http: HttpClient) { }
 
