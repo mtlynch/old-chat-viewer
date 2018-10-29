@@ -8,9 +8,10 @@
   <div *ngIf="selectedConversation != null">
     <div *ngFor="let m of conversations[selectedConversation].messages">
       <p>
-        <span [ngClass]="m.sender === conversations[selectedConversation].localUsername ? 'local-sender' : 'remote-sender'">{{
-          m.sender }}</span>
-        (<span class="timestamp">{{ m.timestamp }}</span>):
+        (<span class="timestamp">{{ m.timestamp }}</span>)
+        <span [ngClass]="m.sender === conversations[selectedConversation].localUsername ? 'local-sender' : 'remote-sender'">
+          {{ m.sender }}:
+        </span>
         <span class="contents" [innerHTML]="m.contents"></span>
       </p>
     </div>
